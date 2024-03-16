@@ -1,6 +1,9 @@
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div>Duolingoo</div>
+    <div>
+      <Button> Hellow </Button>
+    </div>
   );
 }
