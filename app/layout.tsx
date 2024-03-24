@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from "nextjs-toploader";
+import { ExitModal } from "@/components/modals/exit-modal";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
             showAtBottom={false}
           />
           <Toaster />
+          <ExitModal />
           {children}
         </body>
       </html>
