@@ -34,6 +34,8 @@ const LearnPage = async () => {
     redirect("/courses");
   }
 
+  const isPro = false;
+
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
@@ -41,7 +43,7 @@ const LearnPage = async () => {
           activeCourse={userProgress.activeCourse}
           hearts={userProgress.hearts}
           points={userProgress.points}
-          hasActiveSubscription={false}
+          hasActiveSubscription={isPro}
         />
       </StickyWrapper>
       <FeedWrapper>
