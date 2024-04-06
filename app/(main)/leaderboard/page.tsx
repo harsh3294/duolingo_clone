@@ -6,11 +6,10 @@ import {
   getUserProgress,
   getUserSubscription,
 } from "@/db/queries";
-import { SeparatorHorizontal } from "lucide-react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
+import { Separator } from "@/components/ui/separator";
 const LearderboardPage = async () => {
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -53,7 +52,7 @@ const LearderboardPage = async () => {
           <p className="text-muted-foreground text-center text-lg mb-6">
             See where you stand among other learners in the community.
           </p>
-          <SeparatorHorizontal className="mb-4 h-0.5 rounded-full" />
+          <Separator className="mb-4 h-0.5 rounded-full" />
           {leaderboard.map((userProgress, index) => (
             <div
               key={userProgress.userId}
