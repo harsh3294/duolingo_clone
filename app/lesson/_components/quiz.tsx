@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Confetti from "react-confetti";
-import { challenges, challengeOptions } from "@/db/schema";
+import { challenges, challengeOptions, userSubscription } from "@/db/schema";
 import { Header } from "./header";
 import { useState, useTransition } from "react";
 import { QuestionBubble } from "./question-bubble";
@@ -24,7 +24,11 @@ type Props = {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
-  userSubscription: any;
+  userSubscription:
+    | (typeof userSubscription.$inferSelect & {
+        isActive: boolean;
+      })
+    | null;
 };
 
 export const Quiz = ({
@@ -175,7 +179,11 @@ export const Quiz = ({
           </h1>
           <div className="flex items-center gap-x-4 w-full">
             <ResultCard variant="points" value={challenges.length * 10} />
-            <ResultCard variant="hearts" value={hearts} />
+            {!userSubscription?.isActive ? (
+              <ResultCard variant="hearts" value={hearts} />
+            ) : (
+              <ResultCard variant="heartsInfinity" value={hearts} />
+            )}
           </div>
         </div>
         <Footer
@@ -190,7 +198,6 @@ export const Quiz = ({
     challenge.type.toUpperCase() === "ASSIST".toUpperCase()
       ? "Select the correct meaning"
       : challenge.question;
-
   return (
     <>
       {incorrectAudio}
