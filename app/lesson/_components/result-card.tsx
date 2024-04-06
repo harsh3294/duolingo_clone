@@ -14,8 +14,6 @@ export const ResultCard = ({ value, variant }: Props) => {
       ? "/heart.svg"
       : "/points.svg";
 
-  console.log(imageSrc);
-
   return (
     <div
       className={cn(
