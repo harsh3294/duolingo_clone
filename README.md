@@ -70,7 +70,7 @@ ADMIN_KEY=
 npm run db:seed
 ```
 
-## Seed Data for Peoduction Environment
+## Seed Data for Production Environment
 
 ```bash
 npm run db:prod
